@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificially A Plant: Vegan Cooking Made by Machines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8f0;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .cookbook-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .surprise-button {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .surprise-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artificially A Plant</h1>
+        <h2>Vegan Cooking Made by Machines</h2>
+    </header>
+
+    <button class="surprise-button" onclick="goToRandomRecipe()">Surprise Me!</button>
+
+    <div class="cookbook-section">
+        <h2>Appetizers</h2>
+        <p>Start your meal with our AI-curated selection of plant-based starters.</p>
+    </div>
+
+    <div class="cookbook-section">
+        <h2>Main Courses</h2>
+        <p>Discover hearty vegan entrees designed by artificial intelligence.</p>
+    </div>
+
+    <div class="cookbook-section">
+        <h2>Desserts</h2>
+        <p>Indulge in sweet treats that are completely plant-based.</p>
+    </div>
+
+    <div class="cookbook-section">
+        <h2>Beverages</h2>
+        <p>Refresh yourself with AI-engineered drinks and smoothies.</p>
+    </div>
+
+    <script>
+        function goToRandomRecipe() {
+            // Add your recipe URLs to this array as you create them
+            const recipes = [
+                // 'recipe1.html',
+                // 'recipe2.html',
+                // 'recipe3.html'
+            ];
+            
+            if (recipes.length > 0) {
+                const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+                window.location.href = randomRecipe;
+            } else {
+                alert('Recipes coming soon!');
+            }
+        }
+    </script>
+</body>
+</html>
