@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Recipe Book</title>
+    <style>
+        :root{
+            --bg:#fafafa; --card:#fff; --accent:#e76f51; --muted:#6b6b6b;
+            --radius:10px; --shadow:0 6px 18px rgba(0,0,0,.06);
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        html,body{height:100%}
+        body{
+            margin:0; background:linear-gradient(180deg,#f7fbfc,var(--bg)); color:#111; padding:32px;
+            display:flex; align-items:flex-start; justify-content:center;
+        }
+        .wrap{
+            width:100%; max-width:980px;
+        }
+        header{
+            display:flex; gap:16px; align-items:center; margin-bottom:18px;
+        }
+        h1{margin:0; font-size:1.5rem}
+        p.lead{margin:4px 0 0; color:var(--muted); font-size:.95rem}
+        .controls{
+            display:flex; gap:12px; align-items:center; margin:18px 0;
+        }
+        button#surpriseBtn{
+            background:linear-gradient(180deg,var(--accent),#d95a3f); color:white; border:0;
+            padding:10px 14px; font-weight:600; border-radius:8px; cursor:pointer;
+            box-shadow:var(--shadow); transition:transform .12s ease,opacity .12s;
+        }
+        button#surpriseBtn:active{ transform:translateY(1px) }
+        button[disabled]{ opacity:.55; cursor:not-allowed; transform:none }
+        .status{ color:var(--muted); font-size:.95rem }
+        .card{
+            background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+            padding:18px;
+        }
+        #recipeList{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+        #recipeList a{
+            display:block; padding:12px 14px; border-radius:8px; text-decoration:none;
+            color:inherit; border:1px solid #f0f0f0; background:linear-gradient(#fff,#fcfcfc);
+        }
+        #recipeList a:hover{ box-shadow:0 4px 10px rgba(0,0,0,.04); transform:translateY(-2px) }
+        .meta{ font-size:.85rem; color:var(--muted) }
+        .hint{ margin-top:12px; font-size:.9rem; color:var(--muted) }
+        .preview{
+            margin-top:10px; padding:10px; border-radius:8px; background:#f8f8f8; font-size:.92rem;
+            color:#333;
+        }
+        footer{ margin-top:18px; color:var(--muted); font-size:.85rem }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div>
+                <h1>My Recipe Book</h1>
+                <p class="lead">Quickly jump to recipes or let "Surprise me!" pick one at random.</p>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button id="surpriseBtn" type="button" aria-controls="recipeList" aria-live="polite">Surprise me!</button>
+            <div class="status" id="status" aria-atomic="true">No recipes found yet.</div>
+        </div>
+
+        <main class="card" id="content">
+            <section aria-labelledby="listTitle">
+                <h2 id="listTitle" style="font-size:1.05rem;margin:0 0 12px 0">Recipes</h2>
+
+                <!--
+                    Add your recipe links below. Examples:
+                    - Link to a separate HTML recipe file (in same folder or subfolder):
+                            <li><a href="chocolate-cake.html">Chocolate Cake</a></li>
+                    - Link to an in-page recipe anchor:
+                            <li><a href="#lemon-tart">Lemon Tart (in this page)</a></li>
+                    - Add data-title or data-preview for richer UI (optional):
+                            <li><a href="recipes/soup.html" data-title="Hearty Tomato Soup" data-preview="30 min · Serves 4">Hearty Tomato Soup</a></li>
+                -->
+                <ul id="recipeList">
+                    <!-- Put uploaded recipe links here -->
+                </ul>
+
+                <div class="hint">Tip: upload your recipe files into this folder and add links above. This page watches for new links and will enable the Surprise button when recipes exist.</div>
+
+                <div id="preview" class="preview" hidden aria-hidden="""true"></di
+            </section>
+            <footer>Keyboard: press the Surprise button or press Enter while focused on it.</footer>
+        </main>
+    </div>
+
+    <script>
+        // Recipe book "Surprise me!" behavior.
+        (function(){
+            const list = document.getElementById('recipeList');
+            const btn = document.getElementById('surpriseBtn');
+            const status = document.getElementById('status');
+            const preview = document.getElementById('preview');
+
+            function getAnchors(){
+                return Array.from(list.querySelectorAll('a[href]')).filter(a => !a.hasAttribute('data-disabled') && a.offsetParent !== null);
+            }
+
+            function updateUI(){
+                const anchors = getAnchors();
+                if(anchors.length === 0){
+                    btn.disabled = true;
+                    status.textContent = 'No recipes found yet.';
+                    preview.hidden = true;
+                    preview.setAttribute('aria-hidden','true');
+                } else {
+                    btn.disabled = false;
+                    status.textContent = anchors.length + (anchors.length === 1 ? ' recipe available' : ' recipes available');
+                }
+            }
+
+            function pickRandom(){
+                const anchors = getAnchors();
+                if(!anchors.length) return;
+                const choice = anchors[Math.floor(Math.random() * anchors.length)];
+                announceAndGo(choice);
+            }
+
+            function announceAndGo(anchor){
+                // Update status for screen reader
+                const title = anchor.dataset.title || anchor.textContent.trim() || anchor.getAttribute('href');
+                status.textContent = 'Opening: ' + title;
+                // Show preview if present
+                const previewText = anchor.dataset.preview;
+                if(previewText){
+                    preview.textContent = previewText;
+                    preview.hidden = false;
+                    preview.setAttribute('aria-hidden','false');
+                } else {
+                    preview.hidden = true;
+                    preview.setAttribute('aria-hidden','true');
+                }
+
+                const href = anchor.getAttribute('href') || '';
+                if(href.startsWith('#')){
+                    const id = href.slice(1);
+                    const el = document.getElementById(id);
+                    if(el){
+                        el.scrollIntoView({behavior:'smooth', block:'center'});
+                        el.focus({preventScroll:true});
+                        return;
+                    }
+                }
+                // For relative or absolute pages navigate the browser
+                // Use location.assign so back button works
+                window.location.assign(href);
+            }
+
+            btn.addEventListener('click', pickRandom);
+            // also support Enter key while focused (native)
+
+            // Show simple hover preview for anchors
+            list.addEventListener('mouseover', e => {
+                const a = e.target.closest('a');
+                if(!a || !list.contains(a)) return;
+                const p = a.dataset.preview || a.dataset.title;
+                if(p){
+                    preview.textContent = p;
+                    preview.hidden = false;
+                    preview.setAttribute('aria-hidden','false');
+                }
+            });
+            list.addEventListener('mouseout', e => {
+                // hide preview when leaving the link area
+                const to = e.relatedTarget;
+                if(!to || !list.contains(to)){
+                    preview.hidden = true;
+                    preview.setAttribute('aria-hidden','true');
+                }
+            });
+
+            // Observe DOM changes so uploading or adding links automatically updates the UI
+            const mo = new MutationObserver(updateUI);
+            mo.observe(list, {childList:true, subtree:true, attributes:true}); // attributes in case data-disabled changes
+
+            // Initial state
+            updateUI();
+
+            // Optional: enable adding example links by pressing "A" (for convenience while editing)
+            document.addEventListener('keydown', e => {
+                if(e.key === 'A' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    // Insert an example entry to help you see behavior
+                    const li = document.createElement('li');
+                    const idx = getAnchors().length + 1;
+                    const a = document.createElement('a');
+                    a.href = 'recipe-' + idx + '.html';
+                    a.textContent = 'Example Recipe #' + idx;
+                    a.dataset.preview = 'Example preview: prep 10 min · cook 20 min';
+                    li.appendChild(a);
+                    list.appendChild(li);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>v>
