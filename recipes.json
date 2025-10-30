@@ -1,0 +1,301 @@
+{"recipes":[]}
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Bean and Avocado Toast",
+      "tags": ["breakfast", "quick"],
+      "time": "15 min",
+      "ingredients": [
+        "1 can black beans, drained and rinsed",
+        "1 ripe avocado",
+        "2-4 slices whole grain bread",
+        "1 tbsp lemon juice",
+        "Salt and pepper, to taste"
+      ],
+      "steps": [
+        "Mash the avocado with lemon juice, salt, and pepper.",
+        "Toast the bread.",
+        "Spread avocado on toast and top with black beans.",
+        "Add optional toppings and serve."
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Full Vegan English Breakfast",
+      "tags": ["breakfast"],
+      "time": "30 min",
+      "ingredients": [
+        "Vegan sausages",
+        "Vegan bacon",
+        "Grilled tomatoes, halved",
+        "Baked beans (canned, in tomato sauce)",
+        "Sautéed mushrooms"
+      ],
+      "steps": [
+        "Cook vegan sausages and bacon according to package instructions.",
+        "Grill tomatoes and sauté mushrooms.",
+        "Heat baked beans and arrange everything on a plate."
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Mediterranean Bean Salad",
+      "tags": ["lunch", "salad"],
+      "time": "20 min",
+      "ingredients": [
+        "2 cans mixed beans, drained and rinsed",
+        "1 cucumber, diced",
+        "1 red onion, finely chopped",
+        "2 tomatoes, diced",
+        "Olive oil and lemon juice for dressing"
+      ],
+      "steps": [
+        "Combine all beans and vegetables in a bowl.",
+        "Dress with olive oil and lemon juice, season to taste.",
+        "Toss well and serve chilled."
+      ]
+    },
+    {
+      "id": "4",
+      "title": "BBQ Tempeh Pizza",
+      "tags": ["dinner", "main"],
+      "time": "45 min",
+      "ingredients": [
+        "1 pizza dough",
+        "1 package tempeh, crumbled",
+        "BBQ sauce",
+        "Vegan mozzarella",
+        "Red onion, sliced"
+      ],
+      "steps": [
+        "Preheat oven to 450°F.",
+        "Assemble pizza with BBQ sauce, tempeh, onion, and cheese.",
+        "Bake until crust is golden."
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Chocolate Avocado Mousse",
+      "tags": ["dessert", "quick"],
+      "time": "15 min",
+      "ingredients": [
+        "2 ripe avocados",
+        "1/2 cup cocoa powder",
+        "1/3 cup maple syrup",
+        "1 tsp vanilla extract",
+        "Pinch of salt"
+      ],
+      "steps": [
+        "Blend all ingredients until smooth.",
+        "Chill for 30 minutes and serve."
+      ]
+    }
+  ]
+}
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Bean and Avocado Toast",
+      "tags": ["breakfast", "quick"],
+      "time": "15 min",
+      "ingredients": [
+        "1 can black beans, drained and rinsed",
+        "1 ripe avocado",
+        "2-4 slices whole grain bread",
+        "1 tbsp lemon juice",
+        "Salt and pepper, to taste"
+      ],
+      "steps": [
+        "Mash the avocado with lemon juice, salt, and pepper.",
+        "Toast the bread.",
+        "Spread avocado on toast and top with black beans.",
+        "Add optional toppings and serve."
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Full Vegan English Breakfast",
+      "tags": ["breakfast"],
+      "time": "30 min",
+      "ingredients": [
+        "Vegan sausages",
+        "Vegan bacon",
+        "Grilled tomatoes, halved",
+        "Baked beans (canned, in tomato sauce)",
+        "Sautéed mushrooms"
+      ],
+      "steps": [
+        "Cook vegan sausages and bacon according to package instructions.",
+        "Grill tomatoes and sauté mushrooms.",
+        "Heat baked beans and arrange everything on a plate."
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Mediterranean Bean Salad",
+      "tags": ["lunch", "salad"],
+      "time": "20 min",
+      "ingredients": [
+        "2 cans mixed beans, drained and rinsed",
+        "1 cucumber, diced",
+        "1 red onion, finely chopped",
+        "2 tomatoes, diced",
+        "Olive oil and lemon juice for dressing"
+      ],
+      "steps": [
+        "Combine all beans and vegetables in a bowl.",
+        "Dress with olive oil and lemon juice, season to taste.",
+        "Toss well and serve chilled."
+      ]
+    },
+    {
+      "id": "4",
+      "title": "BBQ Tempeh Pizza",
+      "tags": ["dinner", "main"],
+      "time": "45 min",
+      "ingredients": [
+        "1 pizza dough",
+        "1 package tempeh, crumbled",
+        "BBQ sauce",
+        "Vegan mozzarella",
+        "Red onion, sliced"
+      ],
+      "steps": [
+        "Preheat oven to 450°F.",
+        "Assemble pizza with BBQ sauce, tempeh, onion, and cheese.",
+        "Bake until crust is golden."
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Chocolate Avocado Mousse",
+      "tags": ["dessert", "quick"],
+      "time": "15 min",
+      "ingredients": [
+        "2 ripe avocados",
+        "1/2 cup cocoa powder",
+        "1/3 cup maple syrup",
+        "1 tsp vanilla extract",
+        "Pinch of salt"
+      ],
+      "steps": [
+        "Blend all ingredients until smooth.",
+        "Chill for 30 minutes and serve."
+      ]
+    }
+  ]
+}
+    },      "steps": [
+
+    {        "Cook vegan sausages and bacon according to package instructions.",
+
+      "id": "3",        "Grill or broil the tomato halves until soft and slightly charred.",
+
+      "title": "BBQ Tempeh Pizza",        "Heat the baked beans in a saucepan.",
+
+      "tags": ["dinner", "main"],        "Sauté mushrooms in a little olive oil until tender.",
+
+      "time": "45 min",        "Cook hash browns or fried potatoes until crispy.",
+
+      "ingredients": [        "Arrange everything on a plate with toasted bread and a side of spinach or extra baked beans."
+
+        "1 pizza dough",      ]
+
+        "1 package tempeh, crumbled",    },
+
+        "BBQ sauce",    {
+
+        "Vegan mozzarella",      "id": "3",
+
+        "Red onion, sliced"      "title": "Mediterranean Bean Salad",
+
+      ],      "tags": ["lunch", "quick", "salad"],
+
+      "steps": [      "time": "20 min",
+
+        "Preheat oven to 450°F.",      "ingredients": [
+
+        "Assemble pizza with BBQ sauce, tempeh, onion, and cheese.",        "2 cans mixed beans, drained and rinsed",
+
+        "Bake until crust is golden."        "1 red onion, finely chopped",
+
+      ]        "1 cucumber, diced",
+
+    },        "2 tomatoes, diced",
+
+    {        "Handful of fresh parsley, chopped",
+
+      "id": "4",        "Olive oil and lemon juice for dressing",
+
+      "title": "Chocolate Avocado Mousse",        "Salt and pepper to taste"
+
+      "tags": ["dessert", "quick"],      ],
+
+      "time": "15 min",      "steps": [
+
+      "ingredients": [        "Combine all beans in a large bowl",
+
+        "2 ripe avocados",        "Add chopped vegetables and parsley",
+
+        "1/2 cup cocoa powder",        "Dress with olive oil and lemon juice",
+
+        "1/3 cup maple syrup",        "Season with salt and pepper",
+
+        "1 tsp vanilla extract"        "Toss well and serve chilled"
+
+      ],      ]
+
+      "steps": [    },
+
+        "Blend all ingredients until smooth.",    {
+
+        "Chill before serving."      "id": "4",
+
+      ]      "title": "BBQ Tempeh Pizza",
+
+    }      "tags": ["dinner", "main"],
+
+  ]      "time": "45 min",
+
+}      "ingredients": [
+
+        "1 pizza dough",
+        "1 package tempeh, crumbled",
+        "BBQ sauce",
+        "Vegan mozzarella",
+        "Red onion, sliced",
+        "Fresh cilantro"
+      ],
+      "steps": [
+        "Preheat oven to 450°F",
+        "Roll out pizza dough",
+        "Spread BBQ sauce, top with crumbled tempeh, onions, and vegan cheese",
+        "Bake for 15-20 minutes until crust is golden",
+        "Garnish with fresh cilantro"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Chocolate Avocado Mousse",
+      "tags": ["dessert", "quick"],
+      "time": "15 min",
+      "ingredients": [
+        "2 ripe avocados",
+        "1/2 cup cocoa powder",
+        "1/3 cup maple syrup",
+        "1 tsp vanilla extract",
+        "Pinch of salt",
+        "Optional: berries for garnish"
+      ],
+      "steps": [
+        "Blend avocados until smooth",
+        "Add cocoa powder, maple syrup, vanilla, and salt",
+        "Blend until completely combined and creamy",
+        "Chill for at least 30 minutes",
+        "Serve with fresh berries if desired"
+      ]
+    }
+  ]
+}

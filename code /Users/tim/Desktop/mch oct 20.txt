@@ -1,0 +1,131 @@
+﻿Of course. Here is the podcast script for this week's Monday edition of Multi Colored Hats, formatted in Speech Synthesis Markup Language (SSML).
+
+
+XML
+
+
+
+
+<?xml version="1.0"?>
+<speak version="1.1" xmlns="http://www.w3.org/2001/10/synthesis"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2001/10/synthesis
+                http://www.w3.org/TR/speech-synthesis11/synthesis.xsd"
+      xml:lang="en-US">
+
+   <audio src="soundbank://music/upbeat_chaotic_synth_intro.mp3" />
+
+   <p>
+       <s>Good morning, and welcome to the Monday edition of <emphasis level="strong">Multi Colored Hats</emphasis>, the only podcast that sifts through the weekend's AI and cybersecurity dumpster fire so you don't have to get ash on your sneakers.</s>
+       <s>I'm your host, Kip, and it is Monday, October 20th, 2025.</s>
+   </p>
+
+   <p>
+       <s>It was a weekend where we learned that one of the companies that builds the internet's plumbing has sprung a massive, nation-state-sized leak.</s>
+       <s>We also learned that your TikTok doomscrolling might now come with a side of malware, and that 17 million people's financial data just got a one-way ticket to the dark web.</s>
+       <s>And if you're having trouble logging into anything this morning, you're not alone. The cloud has evaporated.</s>
+       <s>It's Monday, the simulation is definitely glitching, and we're here to document it. Let's get into it.</s>
+   </p>
+
+   <audio src="soundbank://sound_effects/digital_power_up.mp3" />
+
+   <p>
+       <s>First up, a story that should give you the warm and fuzzies about the security of, oh, just about everything.</s>
+       <s>On Friday, the networking giant F5 disclosed a major security breach, and this one's a doozy.</s>
+       <s>It's not just a data leak; it's a "nation-state actor" situation, with multiple outlets pointing the finger at China. [1, 2, 3]</s>
+       <s>The attackers reportedly got into F5's internal systems and made off with, among other things, source code. [4]</s>
+   </p>
+
+   <p>
+       <s>This is the cybersecurity equivalent of a fire station burning down.</s>
+       <s>F5 makes the networking gear that sits at the heart of countless corporate and government networks.</s>
+       <s>Stealing their source code is like stealing the blueprints to the bank vault.</s>
+       <s>The attackers didn't just get data; they got the instruction manual for how to break in everywhere else.</s>
+       <s>Federal officials are now scrambling to contain the fallout, especially since the stolen files reportedly include undisclosed vulnerabilities F5 was still researching. [4]</s>
+       <s>So, congratulations, everyone. The watchmen have been breached, and the burglars now have a copy of the security guard's schedule.</s>
+   </p>
+
+   <audio src="soundbank://sound_effects/computer_error_buzzer.mp3" />
+
+   <p>
+       <s>Next, in our "your data is now free-range" segment, the peer-to-peer lending platform Prosper had a bit of a whoopsie.</s>
+       <s>On Friday, the breach notification service "Have I Been Pwned" added 17.6 million Prosper accounts to its database. [3, 4, 5]</s>
+       <s>The breach reportedly exposed a treasure trove of personal information, including names, emails, phone numbers, and even some financial details. [4]</s>
+   </p>
+
+   <p>
+       <s>This is fantastic. A platform built on the idea of financial trust just had the personal data of 17 million people spill onto the internet.</s>
+       <s>It's a beautiful reminder that in the digital economy, "peer-to-peer" often means your data is shared with your peers, their peers, and a few thousand anonymous hackers in a basement somewhere.</s>
+       <s>Prosper is investigating, but at this point, that's like investigating why the barn is empty after you've left the door open for a week.</s>
+   </p>
+
+   <audio src="soundbank://sound_effects/data_breach_alarm.mp3" />
+
+   <p>
+       <s>From financial data to your social media feed, hackers have found a new, deeply cursed way to deliver malware: TikTok.</s>
+       <s>Yes, your favorite source for dance challenges and life hacks is now also a potential source for spyware.</s>
+       <s>Researchers reported on Friday that a new campaign is using TikTok videos to deliver self-compiling PowerShell malware. [6, 7]</s>
+   </p>
+
+   <p>
+       <s>The malicious code is hidden in the video's metadata or description, and when a user is tricked into running a linked script, it pulls the code, compiles itself, and gets to work.</s>
+       <s>It's a brilliant, if diabolical, use of a trusted platform.</s>
+       <s>You think you're watching a video about the "lazy girl" workout, but you're actually downloading a script that's about to do a very energetic workout on your hard drive.</s>
+       <s>The latest viral trend is the "Steal Your Password" shuffle.</s>
+   </p>
+
+   <audio src="soundbank://sound_effects/video_rewind.mp3" />
+
+   <p>
+       <s>And in "Das Auto, Das Data Leak" news, German auto giant Volkswagen is investigating claims from the 8Base ransomware group that they've been hacked. [6]</s>
+       <s>The group posted Volkswagen on its leak site over the weekend, claiming to have stolen sensitive company data. [6]</s>
+       <s>Volkswagen has stated it's aware of the claims and is investigating, which is the corporate equivalent of saying, "We've noticed the smoke, and we're currently forming a committee to determine its origin."</s>
+       <s>No word yet on what data was allegedly stolen, but I'm hoping it includes the secret to finally turning off the check engine light.</s>
+   </p>
+
+   <audio src="soundbank://sound_effects/car_alarm.mp3" />
+
+   <p>
+       <s>And finally, if you're having trouble logging into Slack, Asana, or basically half the internet this morning, you're not alone.</s>
+       <s>Amazon Web Services, the cloud that powers a huge chunk of the digital world, is experiencing a major outage. [8]</s>
+       <s>The memes are already flying, with my personal favorite being a post on X that reads, "Today is my first day at AWS. I noticed a small bug in DynamoDB clustering implementation and I think I fixed it. Shipped to prod already." [8]</s>
+       <s>It's a beautiful reminder that for all our talk of AI and distributed systems, sometimes all it takes is one little "oops" to send the global economy back to the stone age for a few hours.</s>
+       <s>The cloud, it seems, has evaporated.</s>
+   </p>
+
+   <audio src="soundbank://music/chaotic_ad_jingle.mp3" />
+
+   <p>
+       <prosody rate="fast" pitch="+10%">
+           <s>Feeling overwhelmed by the relentless march of technology?</s>
+           <s>Need to process five different existential threats before your 9 AM stand-up?</s>
+           <s>You need <emphasis level="strong">Quantum Leap Energy</emphasis>!</s>
+       </prosody>
+   </p>
+
+   <audio src="soundbank://sound_effects/can_opening_fizz.mp3" />
+   <audio src="soundbank://sound_effects/electrical_hum.mp3" />
+
+   <p>
+       <prosody rate="fast" pitch="+15%">
+           <s>The only energy drink formulated with nootropic algorithms and pure, weaponized caffeine.</s>
+           <s>It won't just keep you awake; it will make you <emphasis level="strong">forget</emphasis> you were ever tired.</s>
+           <s>Side effects may include seeing the source code of reality and referring to your coworkers as 'legacy systems.'</s>
+       </prosody>
+   </p>
+   <p>
+       <prosody rate="x-fast" pitch="+20%">
+           <s><emphasis level="strong">Quantum Leap Energy.</emphasis> It's not just an energy drink. It's a mandatory performance enhancement.</s>
+       </prosody>
+   </p>
+
+   <audio src="soundbank://music/upbeat_chaotic_synth_outro.mp3" />
+
+   <p>
+       <s>And that's our show.</s>
+       <s>A weekend where we learned that our infrastructure is vulnerable, our data is exposed, and our favorite time-wasting app is now a security risk.</s>
+       <s>I'm Kip, and this has been Multi-Colored Hats.</s>
+       <s>Stay cynical, but stay informed.</s>
+   </p>
+
+</speak>

@@ -16,16 +16,14 @@
             text-align: center;
             padding: 40px 0;
         }
-        .cookbook-section {
-            background: white;
-            padding: 20px;
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
         }
-        .surprise-button {
-            display: block;
-            margin: 30px auto;
+        .nav-button, .surprise-button {
             padding: 15px 30px;
             font-size: 1.2em;
             background-color: #4CAF50;
@@ -35,8 +33,47 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .surprise-button:hover {
+        .nav-button:hover, .surprise-button:hover {
             background-color: #45a049;
+        }
+        .nav-button.active {
+            background-color: #2E7D32;
+        }
+        .cookbook-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .recipe-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        .recipe-card h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .recipe-time {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .surprise-button {
+            display: block;
+            margin: 30px auto;
         }
     </style>
 </head>
@@ -46,44 +83,96 @@
         <h2>Vegan Cooking Made by Machines</h2>
     </header>
 
-    <button class="surprise-button" onclick="goToRandomRecipe()">Surprise Me!</button>
-
-    <div class="cookbook-section">
-        <h2>Appetizers</h2>
-        <p>Start your meal with our AI-curated selection of plant-based starters.</p>
+    <div class="nav-buttons">
+        <button class="nav-button active" data-category="all" onclick="filterRecipes('all')">All Recipes</button>
+        <button class="nav-button" data-category="breakfast" onclick="filterRecipes('breakfast')">Breakfast</button>
+        <button class="nav-button" data-category="lunch" onclick="filterRecipes('lunch')">Lunch</button>
+        <button class="nav-button" data-category="dinner" onclick="filterRecipes('dinner')">Dinner</button>
+        <button class="nav-button" data-category="dessert" onclick="filterRecipes('dessert')">Dessert</button>
+        <button class="surprise-button" onclick="goToRandomRecipe()">Surprise Me!</button>
     </div>
 
-    <div class="cookbook-section">
-        <h2>Main Courses</h2>
-        <p>Discover hearty vegan entrees designed by artificial intelligence.</p>
-    </div>
-
-    <div class="cookbook-section">
-        <h2>Desserts</h2>
-        <p>Indulge in sweet treats that are completely plant-based.</p>
-    </div>
-
-    <div class="cookbook-section">
-        <h2>Beverages</h2>
-        <p>Refresh yourself with AI-engineered drinks and smoothies.</p>
-    </div>
+    <div id="recipeGrid" class="recipe-grid"></div>
 
     <script>
-        function goToRandomRecipe() {
-            // Add your recipe URLs to this array as you create them
-            const recipes = [
-                // 'recipe1.html',
-                // 'recipe2.html',
-                // 'recipe3.html'
-            ];
-            
-            if (recipes.length > 0) {
-                const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-                window.location.href = randomRecipe;
-            } else {
-                alert('Recipes coming soon!');
+        let allRecipes = [];
+        let currentCategory = 'all';
+
+        // Load recipes from JSON file
+        async function loadRecipes() {/* Lines 103-111 omitted */}
+        // Load recipes from JSON file (robust parser)
+        async function loadRecipes() {
+            const grid = document.getElementById('recipeGrid');
+            try {
+                const response = await fetch('recipes.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
+                // support both { "recipes": [...] } and a bare array
+                allRecipes = Array.isArray(data) ? data : (data.recipes || []);
+                if (!allRecipes.length) {
+                    console.warn('recipes.json loaded but contains no recipes');
+                    grid.innerHTML = '<p style="color:#666">No recipes available yet.</p>';
+                } else {
+                    displayRecipes(currentCategory);
+                }
+                console.log('Loaded recipes:', allRecipes.length);
+            } catch (error) {
+                console.error('Error loading recipes.json:', error);
+                grid.innerHTML = '<p style="color:#c00">Failed to load recipes.json — check console for details.</p>';
             }
         }
+
+        // Filter recipes by category
+            function filterRecipes(category) {
+                currentCategory = category;
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-category') === category);
+                });
+                displayRecipes(category);
+        }
+
+        // Display recipes based on selected category
+        function displayRecipes(category) {
+            const grid = document.getElementById('recipeGrid');
+            grid.innerHTML = '';
+
+            const filteredRecipes = category === 'all' 
+                ? allRecipes 
+                : allRecipes.filter(recipe => recipe.tags.includes(category));
+
+            filteredRecipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.onclick = () => window.location.href = `Recipe-Book.html?id=${recipe.id}`;
+                card.innerHTML = `
+                    <h3>${recipe.title}</h3>
+                    <div class="recipe-time">${recipe.time || ''}</div>
+                    <div class="recipe-tags">${recipe.tags.join(', ')}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Get a random recipe
+        function goToRandomRecipe() {
+            if (allRecipes.length > 0) {
+                const filteredRecipes = currentCategory === 'all' 
+                    ? allRecipes 
+                    : allRecipes.filter(recipe => recipe.tags.includes(currentCategory));
+                
+                if (filteredRecipes.length > 0) {
+                    const randomRecipe = filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)];
+                    window.location.href = `Recipe-Book.html?id=${randomRecipe.id}`;
+                } else {
+                    alert('No recipes available in this category!');
+                }
+            } else {
+                alert('No recipes available yet!');
+            }
+        }
+
+        // Load recipes when the page loads
+        loadRecipes();
     </script>
 </body>
 </html>
